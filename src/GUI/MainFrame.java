@@ -11,7 +11,7 @@ public class MainFrame extends JFrame {
         this.setLayout(null);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-        LoginPanel loginPanel = new LoginPanel(350, 525, 25, 25);
+        LoginPanel loginPanel = new LoginPanel(350, 530, 25, 25);
         this.add(loginPanel);
         this.setVisible(true);
         this.repaint();

@@ -52,8 +52,8 @@ public class CreateAcountPanel extends Panels {
         address_textField.setBorder(BorderFactory.createTitledBorder("Adress: "));
 
         JPanel cardPanel = new JPanel();
-        cardPanel.setSize(300, 400);
-        cardPanel.setLocation(30, 310);
+        cardPanel.setSize(300, 200);
+        cardPanel.setLocation(30, 300);
         cardPanel.setBorder(BorderFactory.createTitledBorder("Add new Card:"));
         cardPanel.setVisible(true);
 
@@ -102,6 +102,16 @@ public class CreateAcountPanel extends Panels {
         cardPanel.add(cvvNumber_label);
         cardPanel.add(cvvNumber_textField);
 
+        JButton accept = new JButton("Accept");
+        accept.setSize(100, 30);
+        accept.setLocation(230, 510);
+        accept.setVisible(true);
+
+        JButton back = new JButton("Back");
+        back.setSize(100, 30);
+        back.setLocation(30, 510);
+        back.setVisible(true);
+
         this.add(account_label);
         this.add(firstName_textField);
         this.add(lastName_textField);
@@ -110,5 +120,7 @@ public class CreateAcountPanel extends Panels {
         this.add(pesel_textField);
         this.add(address_textField);
         this.add(cardPanel);
+        this.add(accept);
+        this.add(back);
     }
 }

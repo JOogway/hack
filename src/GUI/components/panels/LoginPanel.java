@@ -105,7 +105,7 @@ public class LoginPanel extends Panels {
     }
 
     public void signUpPanelInit() {
-        CreateAcountPanel createAcountPanel = new CreateAcountPanel(350, 525, 25, 25);
+        CreateAcountPanel createAcountPanel = new CreateAcountPanel(350, 555, 10, 25);
         this.getParent().add(createAcountPanel);
         this.getParent().repaint();
         this.getParent().remove(this);
