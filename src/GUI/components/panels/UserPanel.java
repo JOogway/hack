@@ -56,7 +56,7 @@ public class UserPanel extends Panels {
             JTextField tel_number = new JTextField();
             tel_number.setSize(250, 70);
             tel_number.setFont(new Font("Times New Roman", Font.BOLD, 20));
-            tel_number.setLocation(75, 10);
+            tel_number.setLocation(50, 10);
             tel_number.setBorder(BorderFactory.createTitledBorder("Input friend number"));
             tel_number.setVisible(true);
 
@@ -79,6 +79,13 @@ public class UserPanel extends Panels {
         newAppLoanButton.setSize(325, 50);
         newAppLoanButton.setVisible(true);
         newAppLoanButton.setBackground(new Color(255, 220, 26, 134));
+        newAppLoanButton.addActionListener(e -> {
+            GetLoanPanel getLoanPanel = new GetLoanPanel(350, 555, 25, 25);
+            this.getParent().add(getLoanPanel);
+            this.getParent().repaint();
+            this.getParent().remove(this);
+
+        });
 
         JButton logout = new JButton("Logout");
         logout.setSize(100, 30);

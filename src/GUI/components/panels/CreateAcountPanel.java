@@ -11,12 +11,13 @@ import java.awt.*;
 public class CreateAcountPanel extends Panels {
 
     private JLabel account_label;
-    private JTextField firstName_textField, lastName_textField, phone_textField, email_textField, pesel_textField, address_textField, cardNumber_textField, bankAccountNumber_textField, date_textField, cvvNumber_textField;
-
+    private JTextField firstName_textField, lastName_textField, loginField, phone_textField, email_textField, pesel_textField, address_textField, cardNumber_textField, bankAccountNumber_textField, date_textField, cvvNumber_textField;
+    private JPasswordField passwordField;
 
     public CreateAcountPanel(int width, int height, int x, int y) {
         super(width, height, x, y);
         this.setBackground(new Color(225, 225, 225));
+
         account_label = new JLabel("Create Account");
         account_label.setSize(150, 30);
         account_label.setLocation(140, 5);
@@ -26,8 +27,18 @@ public class CreateAcountPanel extends Panels {
         firstName_textField.setLocation(30, 30);
         firstName_textField.setBorder(BorderFactory.createTitledBorder("First name:"));
 
+        loginField = new JTextField("");
+        loginField.setSize(150, 40);
+        loginField.setLocation(190, 30);
+        loginField.setBorder(BorderFactory.createTitledBorder("Login:"));
+
+        passwordField = new JPasswordField("");
+        passwordField.setSize(150, 40);
+        passwordField.setLocation(190, 75);
+        passwordField.setBorder(BorderFactory.createTitledBorder("Set Password"));
+
         lastName_textField = new JTextField("");
-        lastName_textField.setSize(100, 40);
+        lastName_textField.setSize(150, 40);
         lastName_textField.setLocation(30, 75);
         lastName_textField.setBorder(BorderFactory.createTitledBorder("Last name:"));
 
@@ -106,14 +117,29 @@ public class CreateAcountPanel extends Panels {
         accept.setSize(100, 30);
         accept.setLocation(230, 510);
         accept.setVisible(true);
+        accept.addActionListener(e -> {
+            //TODO get data into DB
+            LoginPanel lp = new LoginPanel(350, 530, 25, 25);
+            this.getParent().add(lp);
+            this.getParent().repaint();
+            this.getParent().remove(this);
+        });
 
         JButton back = new JButton("Back");
         back.setSize(100, 30);
         back.setLocation(30, 510);
         back.setVisible(true);
+        back.addActionListener(e -> {
+            LoginPanel lp = new LoginPanel(350, 530, 25, 25);
+            this.getParent().add(lp);
+            this.getParent().repaint();
+            this.getParent().remove(this);
+        });
 
         this.add(account_label);
         this.add(firstName_textField);
+        this.add(loginField);
+        this.add(passwordField);
         this.add(lastName_textField);
         this.add(phone_textField);
         this.add(email_textField);

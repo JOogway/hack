@@ -1,6 +1,7 @@
 package connector;
 
 import java.sql.*;
+import java.util.Objects;
 
 /**
  * Created by oogway on 27.05.17.
@@ -34,14 +35,14 @@ public class DBConnector {
             String userName = "root";
             String passwordSQL = "";
             String driver = "com.mysql.jdbc.Driver";
-            String url = "jdbc:mysql://localhost:3306/prototyp";
+            String url = "jdbc:mysql://localhost:3306/prototyp?autoReconnect=true&useSSL=false";
             Class.forName(driver).newInstance();
             conn = DriverManager.getConnection(url, userName, passwordSQL);
             Statement stmt = conn.createStatement();
             System.out.println("Database connection established");
-            if (function == "insert") {
+            if (Objects.equals(function, "insert")) {
                 insert(stmt, name, surname, bankAccountNumber, cardNumber, expirationDate, cvvCode, phone, email, pesel, address, accountBalance, login, password);
-            } else if (function == "select") {
+            } else if (Objects.equals(function, "select")) {
                 select(stmt, "id_uzytk", id);
             }
 
@@ -84,7 +85,6 @@ public class DBConnector {
             String password = rs.getString("haslo");
             System.out.println(name);
         }
-
     }
 
 }
