@@ -19,6 +19,7 @@ public class LoginPanel extends Panels {
     JButton logInApp = new JButton("Sign in");
     JButton signUpApp = new JButton("Sign up");
 
+
     public LoginPanel(int width, int height, int x, int y) {
         super(width, height, x, y);
 
@@ -97,11 +98,10 @@ public class LoginPanel extends Panels {
     }
 
     public void signInPanelInit() {
-        UserPanel userPanel = new UserPanel(350, 525, 25, 25);
+        UserPanel userPanel = new UserPanel(350, 555, 25, 25);
         this.getParent().add(userPanel);
         this.getParent().repaint();
         this.getParent().remove(this);
-
     }
 
     public void signUpPanelInit() {

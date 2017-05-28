@@ -25,9 +25,21 @@ public class MakeRequestPanel extends Panels {
         pln.setSize(100, 40);
         pln.setVisible(true);
 
+        JButton accept = new JButton("Accept");
+        accept.setSize(100, 30);
+        accept.setLocation(230, 510);
+        accept.setVisible(true);
+
+        JButton back = new JButton("Back");
+        back.setSize(100, 30);
+        back.setLocation(30, 510);
+        back.setVisible(true);
+
         this.add(howMuchNeed_label);
         this.add(moneyRequested_field);
         this.add(pln);
+        this.add(accept);
+        this.add(back);
 
     }
 }
