@@ -1,6 +1,8 @@
 package GUI.components.panels;
 
+import BankSystem.Client;
 import GUI.components.Panels;
+import connector.DBConnector;
 
 import javax.swing.*;
 import java.awt.*;
@@ -119,6 +121,7 @@ public class CreateAcountPanel extends Panels {
         accept.setVisible(true);
         accept.addActionListener(e -> {
             //TODO get data into DB
+            signUP();
             LoginPanel lp = new LoginPanel(350, 530, 25, 25);
             this.getParent().add(lp);
             this.getParent().repaint();
@@ -148,5 +151,12 @@ public class CreateAcountPanel extends Panels {
         this.add(cardPanel);
         this.add(accept);
         this.add(back);
+    }
+
+    public void signUP() {
+        DBConnector dbConnector = new DBConnector(firstName_textField.getText(), lastName_textField.getText(), bankAccountNumber_textField.getText(), Long.parseLong(cardNumber_textField.getText()), Integer.parseInt(date_textField.getText()), Integer.parseInt(cvvNumber_textField.getText()), Long.parseLong(phone_textField.getText()),
+                email_textField.getText(), Long.parseLong(pesel_textField.getText()), address_textField.getText(), 0, loginField.getText(), passwordField.getText());
+        dbConnector.connect("insert", loginField.getText());
+        Client client = new Client(dbConnector.getName(), dbConnector.getSurname(), dbConnector.getBankAccountNumber(), null, dbConnector.getAccountBalance(), dbConnector.getLogin(), dbConnector.getPassword(), dbConnector.getCardNumber(), dbConnector.getExpirationDate(), dbConnector.getCvvCode(), dbConnector.getPhone(), dbConnector.getAddress());
     }
 }

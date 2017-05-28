@@ -1,12 +1,15 @@
 package BankSystem;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by dmacho on 27.05.17.
  */
 public class Client {
 
-    public Client(int id_client, String name, String surname, long bankAccountNumber, ClientStatus status, int accountBalance, String login, String password, long cardNumber, int expirationDate, int cvvCode, long phone, String address) {
-        this.id_client = id_client;
+    public Client(String name, String surname, String bankAccountNumber, ClientStatus status, int accountBalance, String login, String password, long cardNumber, int expirationDate, int cvvCode, long phone, String address) {
+
         this.name = name;
         this.surname = surname;
         this.bankAccountNumber = bankAccountNumber;
@@ -24,9 +27,9 @@ public class Client {
 
     public ClientStatus ClientStatusCheck(){
         if(this.accountBalance < 0)
-           return this.clientStatus = ClientStatus.Clean;
+            return this.clientStatus = ClientStatus.Clean;
         else
-          return  this.clientStatus = ClientStatus.Debt;
+            return this.clientStatus = ClientStatus.Debt;
     }
 
     public void LoginUser(String login, String Password){
@@ -66,11 +69,11 @@ public class Client {
         this.surname = surname;
     }
 
-    public long getBankAccountNumber() {
+    public String getBankAccountNumber() {
         return bankAccountNumber;
     }
 
-    public void setBankAccountNumber(long bankAccountNumber) {
+    public void setBankAccountNumber(String bankAccountNumber) {
         this.bankAccountNumber = bankAccountNumber;
     }
 
@@ -146,10 +149,18 @@ public class Client {
         this.address = address;
     }
 
+    public List<Client> getFriends() {
+        return Friends;
+    }
+
+    public void setFriends(ArrayList<Client> friends) {
+        Friends = friends;
+    }
+
     private int id_client;
     private String name;
     private String surname;
-    private long bankAccountNumber;
+    private String bankAccountNumber;
     private ClientStatus clientStatus;
     private int accountBalance;
     private String login;
@@ -159,6 +170,7 @@ public class Client {
     private int cvvCode;
     private long phone;
     private String address;
+    private ArrayList<Client> Friends = new ArrayList<Client>();
 
 
 }

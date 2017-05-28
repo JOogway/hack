@@ -1,5 +1,6 @@
 package GUI.components.panels;
 
+import BankSystem.Client;
 import GUI.components.Panels;
 
 import javax.swing.*;
@@ -15,7 +16,7 @@ public class ChangeStatus extends Panels {
     JButton transportAccept_button, helpAccept_button, moneyAccept_button;
 
 
-    public ChangeStatus(int width, int height, int x, int y) {
+    public ChangeStatus(int width, int height, int x, int y, Client client) {
         super(width, height, x, y);
 
         need_label = new JLabel("I need:");
@@ -59,7 +60,7 @@ public class ChangeStatus extends Panels {
                     remove(panel_help);
                     repaint();
                 }
-                makePanelTransport();
+                makePanelTransport(client);
                 repaint();
             } else if (cb.getSelectedIndex() == 2) {
                 if (panel_help != null) {
@@ -74,7 +75,7 @@ public class ChangeStatus extends Panels {
                     remove(panel_money);
                     repaint();
                 }
-                makePanelHelp();
+                makePanelHelp(client);
                 repaint();
             }
         });
@@ -102,7 +103,11 @@ public class ChangeStatus extends Panels {
         moneyAccept_button.setSize(90, 40);
         moneyAccept_button.setLocation(150, 140);
         moneyAccept_button.addActionListener(e -> {
-            //TODO get from textField into userDB
+            //TODO data into state of User
+            UserPanel userPanel = new UserPanel(350, 555, 25, 25, null);
+            this.getParent().add(userPanel);
+            this.getParent().repaint();
+            this.getParent().remove(this);
         });
 
 
@@ -117,7 +122,7 @@ public class ChangeStatus extends Panels {
     }
 
 
-    private void makePanelTransport() {
+    private void makePanelTransport(Client client) {
 
         panel_transport = new JPanel();
         panel_transport.setSize(400, 400);
@@ -144,7 +149,11 @@ public class ChangeStatus extends Panels {
         transportAccept_button.setSize(90, 40);
         transportAccept_button.setLocation(150, 240);
         transportAccept_button.addActionListener(e -> {
-            //TODO get from textField into userDB
+            //TODO data into state of User
+            UserPanel userPanel = new UserPanel(350, 555, 25, 25, client);
+            this.getParent().add(userPanel);
+            this.getParent().repaint();
+            this.getParent().remove(this);
         });
 
         panel_transport.add(transportFrom_label);
@@ -159,7 +168,7 @@ public class ChangeStatus extends Panels {
 
     }
 
-    private void makePanelHelp() {
+    private void makePanelHelp(Client client) {
 
         panel_help = new JPanel();
         panel_help.setSize(400, 400);
@@ -178,7 +187,11 @@ public class ChangeStatus extends Panels {
         helpAccept_button.setSize(90, 40);
         helpAccept_button.setLocation(150, 140);
         helpAccept_button.addActionListener(e -> {
-
+            //TODO data into state of User
+            UserPanel userPanel = new UserPanel(350, 555, 25, 25, client);
+            this.getParent().add(userPanel);
+            this.getParent().repaint();
+            this.getParent().remove(this);
         });
 
         panel_help.add(help_label);
